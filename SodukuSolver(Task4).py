@@ -1,5 +1,5 @@
 def is_valid(board, row, col, num):
-    # Check if 'num' is not in current row, column, and 3x3 subgrid
+
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
             return False
@@ -19,10 +19,9 @@ def solve_sudoku(board):
                         board[row][col] = num
                         if solve_sudoku(board):
                             return True
-                        board[row][col] = 0  # If not valid, backtrack
-                return False  # No valid number found, need to backtrack
-    return True  # All cells filled, puzzle solved
-
+                        board[row][col] = 0  
+                return False  
+    return True  
 def print_sudoku(board):
     for row in board:
         print(" ".join(map(str, row)))
